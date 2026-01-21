@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: none;
+            font-size: 1em;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .button:active {
+            transform: translateY(0);
+        }
+
+        .features {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .feature {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .feature p {
+            color: #666;
+            font-size: 0.9em;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Your Webpage</h1>
+        <p>This is a fully functional HTML webpage with modern styling and smooth animations. It's responsive and works on all devices.</p>
+        <p id="message"></p>
+        <button class="button" onclick="getMessage()">Click Me!</button>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>✨ Modern</h3>
+                <p>Beautiful gradient design</p>
+            </div>
+            <div class="feature">
+                <h3>📱 Responsive</h3>
+                <p>Works on all devices</p>
+            </div>
+            <div class="feature">
+                <h3>⚡ Fast</h3>
+                <p>Lightweight and quick</p>
+            </div>
+        </div>
+
+        <form onsubmit="createUser()">
+            <input type="text" name="name" placeholder="Name" id="name">
+            <input type="number" name="age" placeholder="Age" id="age">
+            <input type="text" name="city" placeholder="City" id="city">
+            <input type="email" name="email" placeholder="Email" id="email">
+            <button type="submit">Create User</button>
+        </form>
+    </div>
+
+    <script>
+        function showMessage() {
+            alert('Hello World!');
+        }
+        function doSomething(){
+removeElements();
+        function removeElements(){
+            const elements = document.querySelectorAll('.feature');
+            elements.forEach(element => {
+                element.remove();
+            });
+        }
+        }
+        function getMessage(){
+        fetch('http://localhost:3000/api/data')
+        .then(response => response.json())
+            .then(data => {
+                const p = document.getElementById('message');
+                p.textContent = data.message;
+            })
+             .catch(error => console.error('Error:', error));
+        }
+
+        function createUser(){
+            event.preventDefault();
+            fetch('http://localhost:3000/api/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify
+                ({
+                    name: document.getElementById('name').value,
+                    age: document.getElementById('age').value,
+                    city: document.getElementById('city').value,
+                    email: document.getElementById('email').value
+                })
+            })
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>

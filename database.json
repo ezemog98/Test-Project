@@ -1,0 +1,65 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "age": 30,
+      "city": "New York",
+      "email": "john.doe@example.com"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "age": 25,
+      "city": "Los Angeles",
+      "email": "jane.smith@example.com"
+    },
+    {
+      "id": 3,
+      "name": "Bob Johnson",
+      "age": 35,
+      "city": "Chicago",
+      "email": "bob.johnson@example.com"
+    },
+    {
+      "id": 4,
+      "name": "Esteban Gomez",
+      "age": "27",
+      "city": "San Diego",
+      "email": "eg_gomez@outlook.com"
+    },
+    {
+      "name": "Enrique Gomez",
+      "age": "29",
+      "city": "Dawsonville",
+      "email": "eg_gomez@outlook.com",
+      "id": 5
+    },
+    {
+      "name": "Alancito",
+      "age": "31",
+      "city": "Fallbrook",
+      "email": "eg_gomez@outlook.com",
+      "id": 6
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "message": "Flame Spray Sucks!!!",
+      "timestamp": "2024-01-01T00:00:00.000Z",
+      "status": "success"
+    },
+    {
+      "id": 2,
+      "message": "Hello from Express!",
+      "timestamp": "2024-01-02T00:00:00.000Z",
+      "status": "success"
+    }
+  ],
+  "settings": {
+    "appName": "Test Project",
+    "version": "1.0.0",
+    "maxUsers": 100
+  }
+}
